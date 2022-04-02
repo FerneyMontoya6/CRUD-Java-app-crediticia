@@ -45,6 +45,7 @@ public class ClientesController extends HttpServlet {
             String trabaja = request.getParameter("trabaja");
             String estadoCivil = request.getParameter("estadoCivil");
             
+            
             Clientes cliente = new Clientes(0, edad, cedula, nombre, estadoCivil, trabaja);
             
            

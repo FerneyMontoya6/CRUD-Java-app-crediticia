@@ -65,7 +65,7 @@
                         <td><c:out value="${cliente.edad}" /></td>
                         <td><c:out value="${cliente.trabaja}" /></td>
                         <td><c:out value="${cliente.estadoCivil}" /></td>
-                        <td></td>
+                        <td><c:out value="${cliente.puntuacion}" /></td>
                         <td><a href="ClientesController?accion=modificar&id=<c:out value="${cliente.id}" />">Modificar</a></td>
                         <td><a href="ClientesController?accion=eliminar&id=<c:out value="${cliente.id}" />">Eliminar</td>
                     </tr>
