@@ -7,6 +7,9 @@ package modelo;
 public class Clientes {
     private int id, edad, cedula;
     private String nombre, estadoCivil, trabaja;
+    
+    private int puntuacion = 0;
+
 
     public Clientes(int id, int edad, int cedula, String nombre, String estadoCivil, String trabaja) {
         this.id = id;
@@ -15,6 +18,14 @@ public class Clientes {
         this.nombre = nombre;
         this.estadoCivil = estadoCivil;
         this.trabaja = trabaja;
+    }
+    
+    public int getPuntuacion() {
+        return puntuacion;
+    }
+
+    public void setPuntuacion(int puntuacion) {
+        this.puntuacion = puntuacion;
     }
     
     public int getId() {

@@ -21,6 +21,44 @@ public class ClientesDAO {
         conexion = con.getContexion();
     }
     
+    
+    public void puntuacion(Clientes cliente) {
+        int edad = cliente.getEdad();
+        String estadoCivil = cliente.getEstadoCivil();
+        String trabaja = cliente.getTrabaja();
+        int puntuacion = cliente.getPuntuacion();
+        
+        int EDAD_IDEAL = 35;
+        
+        if(edad <= EDAD_IDEAL) {
+            puntuacion += 5;
+        } else {
+            puntuacion += 2;
+        } 
+        
+        if(null == trabaja) {
+            System.out.println("Error estado civil puntuación");
+        } else switch (trabaja) {
+            case "si":
+                puntuacion += 5;
+                break;
+            case "no":
+                puntuacion += 1;
+                break;
+            default:
+                System.out.println("Error estado civil puntuación");
+                break;
+        }
+        
+        if("soltero".equals(estadoCivil) || "soltera".equals(estadoCivil)) {
+            puntuacion += 5;
+        } else if("casado".equals(estadoCivil) || "casada".equals(estadoCivil)) {
+            puntuacion += 2;
+        }
+        
+        cliente.setPuntuacion(puntuacion);
+    }
+    
     public List<Clientes> listarClientes() {
         
         PreparedStatement ps;
