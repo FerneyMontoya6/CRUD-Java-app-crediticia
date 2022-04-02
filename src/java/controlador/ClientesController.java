@@ -33,8 +33,8 @@ public class ClientesController extends HttpServlet {
         
         if(accion == null || accion.isEmpty()) {
             dispatcher = request.getRequestDispatcher("Clientes/index.jsp");
-            List<Clientes> listaProductos = clientesDAO.listarProductos();
-            request.setAttribute("lista", listaProductos);
+            List<Clientes> listaClientes = clientesDAO.listarClientes();
+            request.setAttribute("lista", listaClientes);
         } 
         
         else if("nuevo".equals(accion)) {
@@ -47,20 +47,18 @@ public class ClientesController extends HttpServlet {
             String trabaja = request.getParameter("trabaja");
             String estadoCivil = request.getParameter("estadoCivil");
             
-            Clientes producto = new Clientes(0, edad, cedula, nombre, estadoCivil, trabaja);
+            Clientes cliente = new Clientes(0, edad, cedula, nombre, estadoCivil, trabaja);
             
            
-            clientesDAO.insertarProductos(producto);
+            clientesDAO.insertarClientes(cliente);
             dispatcher = request.getRequestDispatcher("Clientes/index.jsp");
-            List<Clientes> listaProductos = clientesDAO.listarProductos();
-            request.setAttribute("lista", listaProductos);
+            List<Clientes> listaClientes = clientesDAO.listarClientes();
+            request.setAttribute("lista", listaClientes);
        }  else if("modificar".equals(accion)) {
-            dispatcher = request.getRequestDispatcher("Clientes/nuevo.jsp");
+            dispatcher = request.getRequestDispatcher("Clientes/modificar.jsp");
             int id = Integer.parseInt(request.getParameter("id"));
-            Clientes producto = clientesDAO.mostrarProductos(id);
-            request.setAttribute("producto", producto);
-                    
-            dispatcher.forward(request, response);
+            Clientes cliente = clientesDAO.mostrarClientes(id);
+            request.setAttribute("cliente", cliente);
         } else if("actualizar".equals(accion)) {
             
             int id = Integer.parseInt(request.getParameter("id"));
@@ -70,20 +68,28 @@ public class ClientesController extends HttpServlet {
             String trabaja = request.getParameter("trabaja");
             String estadoCivil = request.getParameter("estadoCivil");
             
-            Clientes producto = new Clientes(id, edad, cedula, nombre, estadoCivil, trabaja);
+            Clientes cliente = new Clientes(id, edad, cedula, nombre, estadoCivil, trabaja);
             
            
-            clientesDAO.actualizar(producto);
+            clientesDAO.actualizar(cliente);
             dispatcher = request.getRequestDispatcher("Clientes/index.jsp");
-            List<Clientes> listaProductos = clientesDAO.listarProductos();
-            request.setAttribute("lista", listaProductos);
+            List<Clientes> listaClientes = clientesDAO.listarClientes();
+        } else if("eliminar".equals(accion)) {
+            
+            int id = Integer.parseInt(request.getParameter("id"));
+            
+            clientesDAO.eliminar(id);
+            
+            dispatcher = request.getRequestDispatcher("Clientes/index.jsp");
+            List<Clientes> listaClientes = clientesDAO.listarClientes();
+            request.setAttribute("lista", listaClientes);
         } else {
             dispatcher = request.getRequestDispatcher("Clientes/index.jsp");
-            List<Clientes> listaProductos = clientesDAO.listarProductos();
-            request.setAttribute("lista", listaProductos);
+            List<Clientes> listaClientes = clientesDAO.listarClientes();
+            request.setAttribute("lista", listaClientes);
         }
         
-        dispatcher.forward(request, response);
+       dispatcher.forward(request, response);
     }
     
     @Override

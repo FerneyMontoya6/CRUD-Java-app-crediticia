@@ -50,19 +50,24 @@
                     <th>Trabaja</th>
                     <th>Estado civil</th>
                     <th>puntuacion</th>
+                    <th>Modificar</th>
+                    <th>Eliminar</th>
                 </tr>
             </thead>
             
             <tbody>
                 
-                <c:forEach var="producto" items="${lista}">
+                <c:forEach var="cliente" items="${lista}">
                     <tr>
-                        <td><c:out value="${producto.id}" /></td>
-                        <td><c:out value="${producto.nombre}" /></td>
-                        <td><c:out value="${producto.cedula}" /></td>
-                        <td><c:out value="${producto.edad}" /></td>
-                        <td><c:out value="${producto.trabaja}" /></td>
-                        <td><c:out value="${producto.estadoCivil}" /></td>
+                        <td><c:out value="${cliente.id}" /></td>
+                        <td><c:out value="${cliente.nombre}" /></td>
+                        <td><c:out value="${cliente.cedula}" /></td>
+                        <td><c:out value="${cliente.edad}" /></td>
+                        <td><c:out value="${cliente.trabaja}" /></td>
+                        <td><c:out value="${cliente.estadoCivil}" /></td>
+                        <td></td>
+                        <td><a href="ClientesController?accion=modificar&id=<c:out value="${cliente.id}" />">Modificar</a></td>
+                        <td><a href="ClientesController?accion=eliminar&id=<c:out value="${cliente.id}" />">Eliminar</td>
                     </tr>
                 </c:forEach>
                     

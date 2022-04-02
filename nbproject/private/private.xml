@@ -2,6 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/Users/Familia%20Montoya/Documents/NetBeansProjects/CRUD-aplicacion-crediticia/src/java/config/Conexion.java</file>
+            <file>file:/D:/Users/Familia%20Montoya/Documents/NetBeansProjects/CRUD-aplicacion-crediticia/web/Clientes/modificar.jsp</file>
+            <file>file:/D:/Users/Familia%20Montoya/Documents/NetBeansProjects/CRUD-aplicacion-crediticia/web/Clientes/nuevo.jsp</file>
+            <file>file:/D:/Users/Familia%20Montoya/Documents/NetBeansProjects/CRUD-aplicacion-crediticia/src/java/modelo/ClientesDAO.java</file>
+            <file>file:/D:/Users/Familia%20Montoya/Documents/NetBeansProjects/CRUD-aplicacion-crediticia/src/java/modelo/Clientes.java</file>
+            <file>file:/D:/Users/Familia%20Montoya/Documents/NetBeansProjects/CRUD-aplicacion-crediticia/src/java/controlador/ClientesController.java</file>
+            <file>file:/D:/Users/Familia%20Montoya/Documents/NetBeansProjects/CRUD-aplicacion-crediticia/web/Clientes/index.jsp</file>
+        </group>
     </open-files>
 </project-private>

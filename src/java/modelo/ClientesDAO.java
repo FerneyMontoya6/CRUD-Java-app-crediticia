@@ -21,7 +21,7 @@ public class ClientesDAO {
         conexion = con.getContexion();
     }
     
-    public List<Clientes> listarProductos() {
+    public List<Clientes> listarClientes() {
         
         PreparedStatement ps;
         ResultSet rs;
@@ -41,8 +41,8 @@ public class ClientesDAO {
                 String trabaja = rs.getString("Trabaja");
                 int cedula = rs.getInt("cedula");
                 
-                Clientes producto = new Clientes(id, edad, cedula, nombre, estadoCivil, trabaja);
-                lista.add(producto);
+                Clientes cliente = new Clientes(id, edad, cedula, nombre, estadoCivil, trabaja);
+                lista.add(cliente);
             }
             
             return lista;
@@ -53,16 +53,16 @@ public class ClientesDAO {
         }
     }
     
-    public Clientes mostrarProductos(int _id) {
+    public Clientes mostrarClientes(int _id) {
         
         PreparedStatement ps;
         ResultSet rs;
         
-        Clientes producto = null;
+        Clientes cliente = null;
         
         try {
             
-            ps = conexion.prepareStatement("SELECT IDcliente, Nombre, Edad, EstadoCivil, Trabaja, cedula FROM clientes WHERE id=?");
+            ps = conexion.prepareStatement("SELECT IDcliente, Nombre, Edad, EstadoCivil, Trabaja, cedula FROM clientes WHERE IDcliente=?");
             ps.setInt(1, _id);
             rs = ps.executeQuery();
             
@@ -74,10 +74,10 @@ public class ClientesDAO {
                 String trabaja = rs.getString("Trabaja");
                 int cedula = rs.getInt("cedula");
                 
-                producto = new Clientes(id, edad, cedula, nombre, estadoCivil, trabaja);
+                cliente = new Clientes(id, edad, cedula, nombre, estadoCivil, trabaja);
             }
             
-            return producto;
+            return cliente;
         } catch (SQLException e) {
             System.out.println("Error en ClientesDao" + e.toString());
             
@@ -85,18 +85,18 @@ public class ClientesDAO {
         }
     }
 
-    public boolean insertarProductos(Clientes producto) {
+    public boolean insertarClientes(Clientes cliente) {
         
         PreparedStatement ps;
         
         try {
             
             ps = conexion.prepareStatement("INSERT INTO clientes (Nombre, Edad, EstadoCivil, Trabaja, cedula) VALUES (?,?,?,?,?)");
-            ps.setString(1, producto.getNombre());
-            ps.setInt(2, producto.getEdad());
-            ps.setString(3, producto.getEstadoCivil());
-            ps.setString(4, producto.getTrabaja());
-            ps.setInt(5, producto.getCedula());
+            ps.setString(1, cliente.getNombre());
+            ps.setInt(2, cliente.getEdad());
+            ps.setString(3, cliente.getEstadoCivil());
+            ps.setString(4, cliente.getTrabaja());
+            ps.setInt(5, cliente.getCedula());
             
             ps.execute();
             
@@ -109,25 +109,25 @@ public class ClientesDAO {
     }
 
     
-    public boolean actualizar(Clientes producto) {
+    public boolean actualizar(Clientes cliente) {
         
         PreparedStatement ps;
         
         try {
             
-            ps = conexion.prepareStatement("UPDATE clientes SET Nombre=?, Edad=?, EstadoCivil=?, Trabaja=?, cedula=? WHERE id=?");
-            ps.setString(1, producto.getNombre());
-            ps.setInt(2, producto.getEdad());
-            ps.setString(3, producto.getEstadoCivil());
-            ps.setString(4, producto.getTrabaja());
-            ps.setInt(5, producto.getCedula());
-            ps.setInt(6, producto.getId());
+            ps = conexion.prepareStatement("UPDATE clientes SET Nombre=?, Edad=?, EstadoCivil=?, Trabaja=?, cedula=? WHERE IDcliente=?");
+            ps.setString(1, cliente.getNombre());
+            ps.setInt(2, cliente.getEdad());
+            ps.setString(3, cliente.getEstadoCivil());
+            ps.setString(4, cliente.getTrabaja());
+            ps.setInt(5, cliente.getCedula());
+            ps.setInt(6, cliente.getId());
             
             ps.execute();
             
             return true;
         } catch (SQLException e) {
-            System.out.println("Error en ClientesDao" + e.toString());
+            System.out.println("Error en ClientesDao actualizar " + e.toString());
             
             return false;
         }
@@ -139,14 +139,13 @@ public class ClientesDAO {
         PreparedStatement ps;
         
         try {
-            
-            ps = conexion.prepareStatement("DELETE FROM productos WHERE id=?");
+            ps = conexion.prepareStatement("DELETE FROM clientes WHERE IDcliente=?");
             ps.setInt(1, _id);
             ps.execute();
-            
             return true;
+            
         } catch (SQLException e) {
-            System.out.println("Error en ClientesDao" + e.toString());
+            System.out.println("Error en ClientesDao " + e.toString());
             
             return false;
         }
