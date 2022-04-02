@@ -16,10 +16,6 @@ public class Clientes {
         this.estadoCivil = estadoCivil;
         this.trabaja = trabaja;
     }
-
-    public Clientes(int edad, int cedula, String nombre, String estadoCivil, String trabaja) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     public int getId() {
         return id;

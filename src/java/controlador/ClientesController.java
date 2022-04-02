@@ -35,9 +35,7 @@ public class ClientesController extends HttpServlet {
             dispatcher = request.getRequestDispatcher("Clientes/index.jsp");
             List<Clientes> listaClientes = clientesDAO.listarClientes();
             request.setAttribute("lista", listaClientes);
-        } 
-        
-        else if("nuevo".equals(accion)) {
+        } else if("nuevo".equals(accion)) {
             dispatcher = request.getRequestDispatcher("Clientes/nuevo.jsp");
         } else if("insertar".equals(accion)) {
             
@@ -70,10 +68,11 @@ public class ClientesController extends HttpServlet {
             
             Clientes cliente = new Clientes(id, edad, cedula, nombre, estadoCivil, trabaja);
             
-           
             clientesDAO.actualizar(cliente);
             dispatcher = request.getRequestDispatcher("Clientes/index.jsp");
             List<Clientes> listaClientes = clientesDAO.listarClientes();
+            request.setAttribute("lista", listaClientes);
+                        
         } else if("eliminar".equals(accion)) {
             
             int id = Integer.parseInt(request.getParameter("id"));

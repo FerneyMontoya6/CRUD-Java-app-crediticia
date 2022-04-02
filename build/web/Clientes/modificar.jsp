@@ -17,7 +17,7 @@
         
         <form action="ClientesController?accion=actualizar" method="POST" autocomplete="off">
             
-            <input id="id" name="id" type="hidden" />
+            <input id="id" name="id" type="hidden"  value="<c:out value="${cliente.id}" />" />
             
             <p>
                 Nombre:
