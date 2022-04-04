@@ -4,11 +4,11 @@ package modelo;
  *
  * @author Familia Montoya
  */
-public class Clientes {
+public class Clientes implements Comparable<Clientes> {
     private int id, edad, cedula;
     private String nombre, estadoCivil, trabaja;
     
-    private int puntuacion;
+    private int puntuacion = 0;
 
 
     public Clientes(int id, int edad, int cedula, String nombre, String estadoCivil, String trabaja) {
@@ -18,7 +18,6 @@ public class Clientes {
         this.nombre = nombre;
         this.estadoCivil = estadoCivil;
         this.trabaja = trabaja;
-        this.puntuacion = 0;
     }
     
     
@@ -113,6 +112,19 @@ public class Clientes {
 
     public void setTrabaja(String trabaja) {
         this.trabaja = trabaja;
+    }
+
+    @Override
+    public int compareTo(Clientes o) {
+        if(this.puntuacion < o.getPuntuacion()) {
+            return 1;
+        } else {
+            if(this.puntuacion > o.getPuntuacion()) {
+                return -1;
+            } else {
+                return 0;
+            }
+        }
     }
     
     

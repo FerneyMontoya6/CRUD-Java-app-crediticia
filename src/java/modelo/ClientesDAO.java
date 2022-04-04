@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -21,7 +22,7 @@ public class ClientesDAO {
         conexion = con.getContexion();
     }
     
-    public List<Clientes> listarClientes() {
+    public ArrayList<Clientes> listarClientes() {
         
         PreparedStatement ps;
         ResultSet rs;
@@ -43,10 +44,15 @@ public class ClientesDAO {
                 
                 Clientes cliente = new Clientes(id, edad, cedula, nombre, estadoCivil, trabaja);
                 cliente.puntuacion(cliente);
+                
                 lista.add(cliente);
             }
+                Collections.sort(lista);     
+                for (Clientes clientes : lista) {
+                    System.out.println(clientes.getPuntuacion());
+                }
             
-            return lista;
+            return (ArrayList<Clientes>) lista;
         } catch (SQLException e) {
             System.out.println("Error en ClientesDAO" + e.toString());
             
@@ -75,7 +81,9 @@ public class ClientesDAO {
                 String trabaja = rs.getString("Trabaja");
                 int cedula = rs.getInt("cedula");
                 
+                
                 cliente = new Clientes(id, edad, cedula, nombre, estadoCivil, trabaja);
+                cliente.puntuacion(cliente);
             }
             
             return cliente;
