@@ -78,15 +78,15 @@
             
             <input id="id" name="id" type="hidden"  value="<c:out value="${cliente.id}" />" />
             
-                <input id="nombre" name="nombre" type="text" value="<c:out value="${cliente.nombre}"/>">
+                <input id="nombre" name="nombre" type="text" required="true" maxlength="20" value="<c:out value="${cliente.nombre}"/>">
      
-                <input id="cedula" name="cedula" type="number" value="<c:out value="${cliente.cedula}"/>">
+                <input id="cedula" name="cedula" type="number" required="true" maxlength="12" value="<c:out value="${cliente.cedula}"/>">
             
-                <input id="edad" name="edad" type="number" value="<c:out value="${cliente.edad}"/>">
+                <input id="edad" name="edad" type="number" required="true" maxlength="2" value="<c:out value="${cliente.edad}"/>">
             
-                <input id="trabaja" name="trabaja" type="text" value="<c:out value="${cliente.trabaja}"/>">
+                <input id="trabaja" name="trabaja" type="text" required="true" maxlength="2" value="<c:out value="${cliente.trabaja}"/>">
 
-                <input id="estadoCivil" name="estadoCivil" type="text" value="<c:out value="${cliente.estadoCivil}"/>">
+                <input id="estadoCivil" name="estadoCivil" type="text" required="true" maxlength="10" value="<c:out value="${cliente.estadoCivil}"/>">
             
                 <button id="guardar" name="guardar" type="submit">Guardar</button>
         </form>

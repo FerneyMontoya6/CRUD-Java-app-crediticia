@@ -44,6 +44,7 @@
                 margin: 0.7rem auto;
                 font-size: 0.9rem;
             }
+ 
             form button {
                 width: 6.3rem;
                 height: 2.3rem;
@@ -63,8 +64,9 @@
                 border: none;
                 border-bottom: 1px solid gray;
             }
-            form input:focus-visible {
+            form input, form select:focus-visible {
                 outline: none;
+                border-bottom: 1px solid #0f2545;;
             }
         </style>
     </head>
@@ -73,15 +75,15 @@
         <form action="ClientesController?accion=insertar" method="POST" autocomplete="off">
             
             <h1>Nuevo registro</h1>
-            <input id="nombre" name="nombre" type="text" placeholder="Nombre">
+            <input id="nombre" name="nombre" type="text" required="true" maxlength="20" placeholder="Nombre">
             
-            <input id="cedula" name="cedula" type="number" placeholder="Cédula">
+            <input id="cedula" name="cedula" type="number" required="true" maxlength="12" placeholder="Cédula">
             
-            <input id="edad" name="edad" type="number" placeholder="Edad">
+            <input id="edad" name="edad" type="number" required="true" maxlength="2" placeholder="Edad">
             
-            <input id="trabaja" name="trabaja" type="text" placeholder="¿Trabaja?">
-            
-            <input id="estadoCivil" name="estadoCivil" type="text" placeholder="Estado civil">
+            <input id="trabaja" name="trabaja" type="text" required="true" maxlength="2" placeholder="¿Trabaja?">
+        
+            <input id="estadoCivil" name="estadoCivil" type="text" required="true" maxlength="10" placeholder="Estado civil">
             
             <button id="guardar" name="guardar" type="submit">Guardar</button>
             
