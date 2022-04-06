@@ -8,8 +8,9 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-    <head>
+    <head lang="es">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="icon" type="image/png" href="Bank-PNG-Clipart-Background.png png"/>
         <title>App crediticia</title>
         
         <style>
@@ -46,6 +47,7 @@
             }
             table {
                 margin: 0 auto;
+                margin-bottom: 2rem;
                 padding: 0;
                 border-collapse: collapse;
                 border: 3px solid #0f2545;

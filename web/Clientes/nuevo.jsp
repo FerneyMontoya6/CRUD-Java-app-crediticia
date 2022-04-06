@@ -7,39 +7,81 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
+    <head lang="es">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link rel="icon" type="image/png" href="Bank-PNG-Clipart-Background.png png"/>
+        <title>Nuevo registro</title>
+        
+        <style>
+            html {
+                font-family: sans-serif;
+            }
+            body {
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                margin: 0;
+                background-color: #0f2545;
+            }
+            
+            form {
+                display: flex;
+                flex-direction: column;
+                width: 35%;
+                height: 30rem;
+                margin: 0 auto;
+                padding-top: 2rem;
+                text-align: center;
+                background-color: white;
+                border-radius: 0.7rem;
+            }
+            form h1 {
+                font-weight: bold;
+            }
+            form input {
+                width: 80%;
+                height: 2rem;
+                margin: 0.7rem auto;
+                font-size: 0.9rem;
+            }
+            form button {
+                width: 6.3rem;
+                height: 2.3rem;
+                margin: 2rem auto;
+                background-color: #0f2545;
+                color: white;
+                font-size: 1rem;
+                font-weight: bold;
+                border: none;
+                border-radius: 0.3rem;
+                cursor: pointer;
+            }
+            form button:active {
+                transform: scale(0.9);
+            }
+            form input {
+                border: none;
+                border-bottom: 1px solid gray;
+            }
+            form input:focus-visible {
+                outline: none;
+            }
+        </style>
     </head>
     <body>
-        <h1>Nuevo registro</h1>
         
         <form action="ClientesController?accion=insertar" method="POST" autocomplete="off">
             
-            <p>
-                Nombre:
-                <input id="nombre" name="nombre" type="text">
-            </p>
+            <h1>Nuevo registro</h1>
+            <input id="nombre" name="nombre" type="text" placeholder="Nombre">
             
-            <p>
-                Cédula:
-                <input id="cedula" name="cedula" type="number">
-            </p>
+            <input id="cedula" name="cedula" type="number" placeholder="Cédula">
             
-            <p>
-                Edad:
-                <input id="edad" name="edad" type="number">
-            </p>
+            <input id="edad" name="edad" type="number" placeholder="Edad">
             
-            <p>
-                Trabaja:
-                <input id="trabaja" name="trabaja" type="text">
-            </p>
+            <input id="trabaja" name="trabaja" type="text" placeholder="¿Trabaja?">
             
-            <p>
-                Estado civil:
-                <input id="estadoCivil" name="estadoCivil" type="text">
-            </p>
+            <input id="estadoCivil" name="estadoCivil" type="text" placeholder="Estado civil">
             
             <button id="guardar" name="guardar" type="submit">Guardar</button>
             

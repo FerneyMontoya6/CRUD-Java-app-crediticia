@@ -10,51 +10,85 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Modificar usuario</title>
+        <link rel="icon" type="image/png" href="Bank-PNG-Clipart-Background.png png"/>
         
         <style>
 
+            html {
+                font-family: sans-serif;
+            }
             body {
+                height: 100vh;
+                display: flex;
+                align-items: center;
                 margin: 0;
+                background-color: #0f2545;
+            }
+            
+            form {
+                display: flex;
+                flex-direction: column;
+                width: 35%;
+                height: 30rem;
+                margin: 0 auto;
+                padding-top: 2rem;
                 text-align: center;
-            }  
+                background-color: white;
+                border-radius: 0.7rem;
+            }
+            form h1 {
+                font-weight: bold;
+            }
+            form input {
+                width: 80%;
+                height: 2rem;
+                margin: 0.7rem auto;
+                font-size: 0.9rem;
+            }
+            form button {
+                width: 6.3rem;
+                height: 2.3rem;
+                margin: 2rem auto;
+                background-color: #0f2545;
+                color: white;
+                font-size: 1rem;
+                font-weight: bold;
+                border: none;
+                border-radius: 0.3rem;
+                cursor: pointer;
+            }
+            form button:active {
+                transform: scale(0.9);
+            }
+            form input {
+                border: none;
+                border-bottom: 1px solid gray;
+            }
+            form input:focus-visible {
+                outline: none;
+            }
 
         </style>
     </head>
     <body>
-        <h1>Modificar registro</h1>
         
         <form action="ClientesController?accion=actualizar" method="POST" autocomplete="off">
+            <h1>Modificar registro</h1>
             
             <input id="id" name="id" type="hidden"  value="<c:out value="${cliente.id}" />" />
             
-            <p>
-                Nombre:
                 <input id="nombre" name="nombre" type="text" value="<c:out value="${cliente.nombre}"/>">
-            </p>
-            
-            <p>
-                Cédula:
+     
                 <input id="cedula" name="cedula" type="number" value="<c:out value="${cliente.cedula}"/>">
-            </p>
             
-            <p>
-                Edad:
                 <input id="edad" name="edad" type="number" value="<c:out value="${cliente.edad}"/>">
-            </p>
             
-            <p>
-                Trabaja:
                 <input id="trabaja" name="trabaja" type="text" value="<c:out value="${cliente.trabaja}"/>">
-            </p>
-            
-            <p>
-                Estado civil:
+
                 <input id="estadoCivil" name="estadoCivil" type="text" value="<c:out value="${cliente.estadoCivil}"/>">
-            </p>
             
-            <button id="guardar" name="guardar" type="submit">Guardar</button>
-            
+                <button id="guardar" name="guardar" type="submit">Guardar</button>
         </form>
         
     </body>
